@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StefCoach - Coach Sportif à Domicile Avignon | Transformation & Performance</title>
+    <meta name="description" content="Coach sportif personnel à Avignon. Séances à domicile, programmes sur-mesure. Perte de poids, renforcement musculaire, remise en forme. Crédit d'impôt 50%.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B35;
+            --secondary: #004E89;
+            --dark: #1A1A2E;
+            --light: #F7F7F7;
+            --accent: #FFD700;
+            --text: #333;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* NAVIGATION */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            color: var(--primary);
+            letter-spacing: 3px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-nav {
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-nav:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255,107,53,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 5.5rem;
+            color: white;
+            line-height: 0.95;
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+            display: block;
+            font-size: 6.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            animation: slideInLeft 1s ease-out 0.2s backwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            animation: slideInLeft 1s ease-out 0.4s backwards;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1.2rem 3rem;
+            border: 2px solid white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--dark);
+        }
+
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            animation: slideInRight 1s ease-out 0.6s backwards;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .feature-card p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        /* TRUST SECTION */
+        .trust-section {
+            background: var(--primary);
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        .trust-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            color: white;
+        }
+
+        .trust-number {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3.5rem;
+            display: block;
+            line-height: 1;
+        }
+
+        .trust-label {
+            font-size: 1rem;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            padding: 6rem 5%;
+            background: var(--light);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 4rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text);
+            font-weight: 300;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 25px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(255, 107, 53, 0.15);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.8rem;
+            position: relative;
+            color: var(--text);
+        }
+
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* PRICE SECTION */
+        .pricing {
+            padding: 6rem 5%;
+            background: var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,107,53,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .price-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 4rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .price-badge {
+            position: absolute;
+            top: -20px;
+            right: 40px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .price-container h2 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3.5rem;
+            text-align: center;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .price-main {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .price-amount {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 6rem;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .price-period {
+            font-size: 2rem;
+            color: var(--text);
+        }
+
+        .price-detail {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .price-highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .price-highlight h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .price-highlight p {
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .price-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .price-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .price-feature-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .price-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            padding: 6rem 5%;
+            background: var(--light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            color: var(--dark);
+            font-weight: 800;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--text);
+            opacity: 0.7;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--dark) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -15%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(255,107,53,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 4.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+            line-height: 1.1;
+        }
+
+        .cta-content p {
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            padding: 3rem 5%;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-text h1 span {
+                font-size: 4.5rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .hero-features {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .price-container {
+                padding: 2rem;
+            }
+
+            .price-features {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+
+        /* SCROLL ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a href="#" class="logo">STEFCOACH</a>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#tarifs">Tarifs</a></li>
+            <li><a href="#temoignages">Témoignages</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="tel:+33632343950" class="cta-nav">06 32 34 39 50</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>
+                    TRANSFORMEZ
+                    <span>VOTRE VIE</span>
+                </h1>
+                <p>Coach sportif personnel à Avignon. Je viens chez vous avec tout le matériel pour vous faire atteindre vos objectifs. Programme 100% personnalisé.</p>
+                <div class="hero-cta">
+                    <a href="tel:+33632343950" class="btn-primary">Séance découverte offerte</a>
+                    <a href="#tarifs" class="btn-secondary">Voir les tarifs</a>
+                </div>
+            </div>
+            <div class="hero-features">
+                <div class="feature-card">
+                    <div class="feature-icon">💪</div>
+                    <h3>Perte de poids</h3>
+                    <p>Programme HIIT et cardio sur-mesure</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏋️</div>
+                    <h3>Renforcement</h3>
+                    <p>Tonification et masse musculaire</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">❤️</div>
+                    <h3>Remise en forme</h3>
+                    <p>Retrouvez énergie et vitalité</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Performance</h3>
+                    <p>Préparation physique ciblée</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST SECTION -->
+    <section class="trust-section">
+        <div class="trust-content">
+            <div class="trust-item">
+                <span class="trust-number">10+</span>
+                <span class="trust-label">Ans d'expérience</span>
+            </div>
+            <div class="trust-item">
+                <span class="trust-number">200+</span>
+                <span class="trust-label">Clients satisfaits</span>
+            </div>
+            <div class="trust-item">
+                <span class="trust-number">50%</span>
+                <span class="trust-label">Crédit d'impôt</span>
+            </div>
+            <div class="trust-item">
+                <span class="trust-number">100%</span>
+                <span class="trust-label">Personnalisé</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="services">
+        <div class="section-header fade-in">
+            <h2>MES PROGRAMMES</h2>
+            <p>Chaque programme est adapté à votre niveau, vos objectifs et vos contraintes. Je viens chez vous avec tout le matériel nécessaire.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">🔥</div>
+                <h3>Perte de Poids</h3>
+                <ul>
+                    <li>HIIT adapté à votre niveau</li>
+                    <li>Cardio-training efficace</li>
+                    <li>Renforcement musculaire global</li>
+                    <li>Conseils nutrition inclus</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">💎</div>
+                <h3>Renforcement Musculaire</h3>
+                <ul>
+                    <li>Tonification complète</li>
+                    <li>Prise de masse ciblée</li>
+                    <li>Gainage et posture</li>
+                    <li>Haltères, TRX, élastiques</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🌟</div>
+                <h3>Séniors & Mobilité</h3>
+                <ul>
+                    <li>Séances sécurisées</li>
+                    <li>Travail de l'équilibre</li>
+                    <li>Soulagement douleurs chroniques</li>
+                    <li>Progression douce</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">⚡</div>
+                <h3>Préparation Physique</h3>
+                <ul>
+                    <li>Running et explosivité</li>
+                    <li>Tests physiques (pompiers, armée)</li>
+                    <li>Compétitions sportives</li>
+                    <li>Challenges personnels</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🏥</div>
+                <h3>Retour Post-Rééducation</h3>
+                <ul>
+                    <li>Réathlétisation progressive</li>
+                    <li>Reprise en toute sécurité</li>
+                    <li>Adaptation aux antécédents</li>
+                    <li>Suivi personnalisé</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">👥</div>
+                <h3>Coaching Duo/Groupe</h3>
+                <ul>
+                    <li>Séances en couple</li>
+                    <li>Entre amis ou famille</li>
+                    <li>Motivation collective</li>
+                    <li>Tarifs avantageux</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="tarifs" class="pricing">
+        <div class="price-container fade-in">
+            <span class="price-badge">🔥 Offre Février</span>
+            <h2>TARIFS TRANSPARENTS</h2>
+            <div class="price-main">
+                <span class="price-amount">40€</span>
+                <span class="price-period">/séance</span>
+            </div>
+            <p class="price-detail">Soit 20€ après crédit d'impôt de 50%</p>
+            
+            <div class="price-highlight">
+                <h3>✨ Avantages Fiscaux</h3>
+                <p>Crédit d'impôt immédiat grâce à l'agrément Service à la Personne + Avance immédiate URSSAF disponible</p>
+            </div>
+
+            <div class="price-features">
+                <div class="price-feature">
+                    <span class="price-feature-icon">✓</span>
+                    <span>Séance 1 heure à domicile</span>
+                </div>
+                <div class="price-feature">
+                    <span class="price-feature-icon">✓</span>
+                    <span>Programme 100% personnalisé</span>
+                </div>
+                <div class="price-feature">
+                    <span class="price-feature-icon">✓</span>
+                    <span>Tout le matériel fourni</span>
+                </div>
+                <div class="price-feature">
+                    <span class="price-feature-icon">✓</span>
+                    <span>Déplacement inclus (20km)</span>
+                </div>
+                <div class="price-feature">
+                    <span class="price-feature-icon">✓</span>
+                    <span>Conseils nutrition</span>
+                </div>
+                <div class="price-feature">
+                    <span class="price-feature-icon">✓</span>
+                    <span>Suivi personnalisé</span>
+                </div>
+                <div class="price-feature">
+                    <span class="price-feature-icon">✓</span>
+                    <span>Tapis de sol offert</span>
+                </div>
+                <div class="price-feature">
+                    <span class="price-feature-icon">✓</span>
+                    <span>CESU préfinancé accepté</span>
+                </div>
+            </div>
+
+            <div class="price-cta">
+                <a href="tel:+33632343950" class="btn-primary">Réserver ma séance découverte</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="temoignages" class="testimonials">
+        <div class="section-header fade-in">
+            <h2>ILS ONT TRANSFORMÉ LEUR VIE</h2>
+            <p>Découvrez les témoignages de mes clients qui ont atteint leurs objectifs</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">J'ai perdu 12kg en 4 mois grâce à Stéphane ! Son coaching personnalisé et ses encouragements ont fait toute la différence. Je me sens enfin bien dans mon corps.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">M</div>
+                    <div class="author-info">
+                        <h4>Marie L.</h4>
+                        <p>Avignon • Perte de poids</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Après une blessure au dos, j'avais peur de reprendre le sport. Stéphane m'a accompagné avec patience et professionnalisme. Je n'ai plus mal et je suis plus forte qu'avant !</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">S</div>
+                    <div class="author-info">
+                        <h4>Sophie D.</h4>
+                        <p>Montfavet • Rééducation</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Coach top ! Les séances à domicile sont parfaites avec mon emploi du temps chargé. Stéphane est motivant et s'adapte vraiment à mes besoins. Je recommande à 100%.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">T</div>
+                    <div class="author-info">
+                        <h4>Thomas R.</h4>
+                        <p>Vedène • Renforcement musculaire</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section id="contact" class="cta-section">
+        <div class="cta-content fade-in">
+            <h2>PRÊT À COMMENCER VOTRE TRANSFORMATION ?</h2>
+            <p>Séance découverte offerte en février • Sans engagement • Résultats garantis</p>
+            <div class="cta-buttons">
+                <a href="tel:+33632343950" class="btn-primary">Appelez maintenant</a>
+                <a href="/cdn-cgi/l/email-protection#4b3829383b24393f0b27223d2e652d39" class="btn-secondary">Envoyez un email</a>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>06 32 34 39 50</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4734253437283533072b2e3122692135">[email&#160;protected]</a></span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span>Avignon & 20 km</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>STEFCOACH</h3>
+                <p>Coach sportif diplômé à Avignon. Programmes personnalisés à domicile pour tous les niveaux et tous les objectifs.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#services">Perte de poids</a></li>
+                    <li><a href="#services">Renforcement musculaire</a></li>
+                    <li><a href="#services">Remise en forme séniors</a></li>
+                    <li><a href="#services">Préparation physique</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Informations</h3>
+                <ul>
+                    <li><a href="#tarifs">Tarifs</a></li>
+                    <li><a href="#">Crédit d'impôt</a></li>
+                    <li><a href="#">Avance immédiate</a></li>
+                    <li><a href="#">CESU préfinancé</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Zone d'intervention</h3>
+                <p>Avignon • Montfavet • Sorgues • Bédarrides • Vedène • Saint-Saturnin-lès-Avignon • Morières-lès-Avignon • Les Angles • Villeneuve-lès-Avignon</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 StefCoach - Tous droits réservés • Agrément Service à la Personne</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector
